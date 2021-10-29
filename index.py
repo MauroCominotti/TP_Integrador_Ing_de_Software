@@ -1,13 +1,9 @@
 from simpleai.search import (
     SearchProblem,
-    breadth_first,
-    depth_first,
-    uniform_cost,
-    limited_depth_first,
-    iterative_limited_depth_first
+    breadth_first
 )
 
-from simpleai.search.viewers import WebViewer, BaseViewer
+from simpleai.search.viewers import WebViewer
 
 # 1 4 2
 #   3 5
@@ -91,26 +87,11 @@ def printing_results(algorithm):
 
 problem = EigthPuzzle(INITIAL)
 
+# We use the WebViewer to add interactive search viewers
+viewer = WebViewer()
 breadth_first_result = breadth_first(
-    problem, graph_search=True, viewer=WebViewer())
+    problem, graph_search=True, viewer=viewer)
 print("############ breadth_first_result ############")
 print("Goal node breadth_first_result:", breadth_first_result)
 print()
 printing_results(breadth_first_result)
-
-# iterative_limited_depth_first_result = iterative_limited_depth_first(
-#     problem, graph_search=True)
-# print("############ iterative_limited_depth_first_result ############")
-# print("Goal node iterative_limited_depth_first_result:",
-#       iterative_limited_depth_first_result)
-# print()
-# printing_results(iterative_limited_depth_first_result)
-
-
-# limited_depth_first_result = limited_depth_first(
-#     problem, graph_search=True)
-# print("############ limited_depth_first_result ############")
-# print("Goal node limited_depth_first_result:", limited_depth_first_result)
-# print()
-# printing_results(limited_depth_first_result)
-# o se hace un print de state(1), newline, state(2), newline, state(3)
