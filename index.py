@@ -5,19 +5,12 @@ from simpleai.search import (
 
 from simpleai.search.viewers import WebViewer, BaseViewer
 
-# 1 4 2
-#   3 5
-# 6 7 8
 INITIAL = (
     (1, 4, 2),
     (0, 3, 5),
     (6, 7, 8),
 )
 
-
-#   1 2
-# 3 4 5
-# 6 7 8
 GOAL = (
     (0, 1, 2),
     (3, 4, 5),
@@ -26,9 +19,7 @@ GOAL = (
 
 
 def where_is(piece, state):
-    """
-    find a piece in the board, and return the row and column indexes.
-    """
+    # find a piece in the board, and return the row and column indexes.
     for row_index, row in enumerate(state):
         for col_index, current_piece in enumerate(row):
             if current_piece == piece:
@@ -47,17 +38,16 @@ class EigthPuzzle(SearchProblem):
 
         available_actions = []
 
-        # the place above
-        if(empty_row > 0):
+        if(empty_row > 0):  # up
             available_actions.append(state[empty_row - 1][empty_col])
-        # the place below
-        if(empty_row < 2):
+
+        if(empty_row < 2):  # down
             available_actions.append(state[empty_row + 1][empty_col])
-        # the place to the left
-        if(empty_col > 0):
+
+        if(empty_col > 0):  # left
             available_actions.append(state[empty_row][empty_col - 1])
-        # the place to the right
-        if(empty_col < 2):
+
+        if(empty_col < 2):  # right
             available_actions.append(state[empty_row][empty_col + 1])
         return available_actions
 
@@ -71,7 +61,6 @@ class EigthPuzzle(SearchProblem):
         state_as_lists[piece_row][piece_col] = 0
 
         new_state = tuple(tuple(row) for row in state_as_lists)
-
         return new_state
 
 
@@ -80,7 +69,7 @@ def printing_results(algorithm):
     for action, state in algorithm.path():
         print("Action:", action)
         print("State:")
-        for i in state:
+        for i in state:  # print as table
             print(", ".join([str(l).rjust(3) for l in i]))
         print()
 
