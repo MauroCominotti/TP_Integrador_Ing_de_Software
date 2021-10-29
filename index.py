@@ -3,7 +3,7 @@ from simpleai.search import (
     breadth_first
 )
 
-from simpleai.search.viewers import WebViewer
+from simpleai.search.viewers import WebViewer, BaseViewer
 
 # 1 4 2
 #   3 5
