@@ -23,9 +23,15 @@ $ pip install pydot flask
 ```
 
 You will need to have pip installed on your system. On linux install the 
-python-pip package, on windows follow `this <http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows>`_.
+python-pip package, on windows follow [this].
+
+[this]: http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows
+
 Also, if you are on linux and not working with a virtualenv, remember to use
-``sudo`` for both commands (``sudo pip install ...``).
+``sudo`` for both commands
+```bash
+$ sudo pip install ...
+```
 ## Simple Demo
 Simple AI allows you to define problems and look for the solution with
 different strategies. Another samples are in the ``samples`` directory, but
@@ -66,4 +72,6 @@ from simpleai.search import SearchProblem, astar
 ```
 
 ## Help and discussion
-Join us at the Simple AI `google group <http://groups.google.com/group/simpleai>`_.
+Join us at the Simple AI [Google group].
+
+[google group]: http://groups.google.com/group/simpleai
